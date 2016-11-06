@@ -1,1 +1,1 @@
-# Regular expression
+# Match string by regular expression

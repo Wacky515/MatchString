@@ -19,4 +19,5 @@ build/
 *.dump
 *.txt
 *.exe
+*.xlsx
 tags
