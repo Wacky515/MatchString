@@ -25,9 +25,11 @@ class MatchString:
         self.read = read
 
         desit = 13
-        search_1 = re.compile("[PAVCX][A-Z1-9]{2,2}[0-9][A-L]34")
-        search_2 = re.compile("[1-31]")
-        search_3 = re.compile("0005")
+        # search_1 = re.compile("[PAVCX][A-Z1-9]{2,2}[0-9][A-L]34")
+        search_1 = re.compile("[PAVCX][A-Z1-9]{2,2}[0-9][A-L][0-9]{2,2}")
+        search_2 = re.compile("[0-9]{2,2}")
+        # search_3 = re.compile("0005")
+        search_3 = re.compile("[0-9]{4,4}")
 
         if len(self.read) == desit:
             read_1 = self.read[:7]
@@ -61,20 +63,24 @@ class MatchString:
 
 def main():
     mst = MatchString()
-    print("OK test: ")
-    print(mst.c59k1_lens_id("X126A34010005"))
+    print("OK test1: ")
+    print(mst.c59k1_lens_id("X126A34010006"))
+    print("")
+
+    print("OK test2: ")
+    print(mst.c59k1_lens_id("X126A24040005"))
     print("")
 
     print("NG code1: ")
-    print(mst.c59k1_lens_id("0126A34400005"))
+    print(mst.c59k1_lens_id("X126M34409999"))
     print("")
 
     print("NG code2: ")
-    print(mst.c59k1_lens_id("X126A34400005"))
+    print(mst.c59k1_lens_id("X126A00400005"))
     print("")
 
     print("NG disit: ")
-    print(mst.c59k1_lens_id("X126A3410005"))
+    print(mst.c59k1_lens_id("X126X99199999"))
     print("")
 
 if __name__ == "__main__":
